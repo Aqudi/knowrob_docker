@@ -2,12 +2,14 @@ version: "3"
 
 services:
   apt-cacher-ng:
+    image: ghcr.io/aqudi/apt_cacher_ng
     build:
       context: ./apt_cacher_ng
     ports:
       - 3142:3142
 
   knowrob:
+    image: ghcr.io/aqudi/knowrob_docker
     build:
       context: ./knowrob
       network: host # Allow access to localhost
