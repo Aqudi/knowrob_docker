@@ -7,6 +7,12 @@ docker-compose pull
 docker-compose up -d
 ```
 
+## Run bash in the container
+
+```
+docker-compose run --rm knowrob bash
+```
+
 ## Build and Push docker images
 
 1. Build apt-cacher-ng container

@@ -16,3 +16,4 @@ services:
       args:
         APT_CACHER_NG_HOST: localhost
         APT_CACHER_NG_PORT: 3142
+    
