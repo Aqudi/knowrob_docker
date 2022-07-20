@@ -8,7 +8,7 @@ RUN echo "Acquire::http { Proxy \"http://$APT_CACHER_NG_HOST:$APT_CACHER_NG_PORT
 
 # Install apt packages
 RUN apt-get -y update && \ 
-    apt-get -y install curl git swi-prolog swi-prolog-java libjson-java libjson-glib-dev \
+    apt-get -y install tmux curl git swi-prolog swi-prolog-java libjson-java libjson-glib-dev \
     ros-kinetic-rosjava ros-kinetic-genjava ros-kinetic-rosjava-messages \
     ros-kinetic-rosauth mencoder lame libavcodec-extra \
     ros-kinetic-rosbridge-suite ros-kinetic-rosapi ros-kinetic-rosbridge-library ros-kinetic-rosbridge-server \
@@ -63,7 +63,7 @@ WORKDIR /home/ros/src
 
 # Cloning ros packages
 RUN echo "Cloning repositories..."
-RUN git clone --recursive https://github.com/knowrob/knowrob.git -b kinetic && \
+RUN git clone --recursive https://github.com/Aqudi/knowrob.git -b kinetic && \
     git clone --recursive https://github.com/knowrob/genowl.git && \
     git clone --recursive https://github.com/knowrob/rosowl.git && \
     git clone --recursive https://github.com/knowrob/rosprolog-java.git && \
