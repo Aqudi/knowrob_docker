@@ -8,7 +8,7 @@ RUN echo "Acquire::http { Proxy \"http://$APT_CACHER_NG_HOST:$APT_CACHER_NG_PORT
 
 # Install apt packages
 RUN apt-get -y update && \ 
-    apt-get -y install tmux curl git swi-prolog swi-prolog-java libjson-java libjson-glib-dev \
+    apt-get -y install zip tmux curl git swi-prolog swi-prolog-java libjson-java libjson-glib-dev \
     ros-kinetic-rosjava ros-kinetic-genjava ros-kinetic-rosjava-messages \
     ros-kinetic-rosauth mencoder lame libavcodec-extra \
     ros-kinetic-rosbridge-suite ros-kinetic-rosapi ros-kinetic-rosbridge-library ros-kinetic-rosbridge-server \
@@ -72,9 +72,15 @@ RUN git clone --recursive https://github.com/Aqudi/knowrob.git -b kinetic && \
     git clone --recursive https://github.com/knowrob/ease_ontology.git && \
     git clone --recursive https://github.com/ease-crc/dul.git
 
-
 WORKDIR /home/ros/src/genowl
 RUN python setup.py install
+
+# Install prolog packages
+WORKDIR /home/temp
+RUN curl -LO https://github.com/mndrix/list_util/archive/v0.13.0.zip && \
+    unzip v0.13.0.zip && \
+    cd list_util-0.13.0 && \
+    swipl -g "pack_install(., [interactive(false)])." -t halt
 
 WORKDIR /home/ros
 RUN  /bin/bash -c /opt/ros/kinetic/bin/catkin_make
