@@ -76,7 +76,7 @@ WORKDIR /home/ros/src/genowl
 RUN python setup.py install
 
 # Install prolog packages
-WORKDIR /home/temp
+WORKDIR /home/ros/temp
 RUN curl -LO https://github.com/mndrix/list_util/archive/v0.13.0.zip && \
     unzip v0.13.0.zip && \
     cd list_util-0.13.0 && \
