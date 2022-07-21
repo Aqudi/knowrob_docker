@@ -17,3 +17,8 @@ services:
         APT_CACHER_NG_HOST: localhost
         APT_CACHER_NG_PORT: 3142
     network_mode: host
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
