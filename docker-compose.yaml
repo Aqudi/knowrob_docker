@@ -9,7 +9,7 @@ services:
       - 3142:3142
 
   knowrob:
-    image: ghcr.io/aqudi/knowrob_docker
+    image: ghcr.io/aqudi/knowrob_docker:kinetic
     build:
       context: ./knowrob
       network: host # Allow access to localhost
